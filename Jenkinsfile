@@ -29,7 +29,7 @@ spec:
                 container('helmcontainer'){
                     sh 'helm version'
                     sh 'gpg --version'
-                    sh 'export GPG_TTY=$(tty)'
+                    sh 'export GPG_TTY=/dev/console'
                     sh 'gpg --import ${PUBLIC_KEY}'
                     sh 'gpg --batch --passphrase ${GPG_PASSPHRASE} --allow-secret-key-import --import ${PRIVATE_KEY}'
                     sh 'gpg --list-keys'
