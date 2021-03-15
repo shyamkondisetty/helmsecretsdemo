@@ -30,7 +30,7 @@ spec:
                     sh '''
                         helm version
                         gpg --version
-                        export GPG_TTY=$(tty)
+                        export GPG_TTY=/dev/pts/0
                         gpg --import ${PUBLIC_KEY}
                         gpg --batch --passphrase ${GPG_PASSPHRASE} --allow-secret-key-import --import ${PRIVATE_KEY}
                         gpg --list-keys
